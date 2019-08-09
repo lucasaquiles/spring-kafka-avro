@@ -1,0 +1,49 @@
+buildscript{
+
+	repositories{
+		jcenter()
+	}
+
+	dependencies {
+		classpath "com.commercehub.gradle.plugin:gradle-avro-plugin:0.17.0"
+	}
+}
+
+plugins {
+	id 'org.springframework.boot' version '2.1.7.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+apply plugin: "com.commercehub.gradle.plugin.avro"
+
+
+
+group = 'br.com.lucasaquiles'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.kafka:spring-kafka'
+
+	compile 'org.apache.avro:avro-compiler:1.7.1'
+	compile 'org.apache.avro.gradle:avro-gradle-plugin:1.7.1'
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.kafka:spring-kafka-test'
+
+	testImplementation 'org.springframework.kafka:spring-kafka-test'
+}

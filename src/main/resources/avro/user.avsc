@@ -1,0 +1,9 @@
+{"namespace": "br.com.lucasaquiles.kafkaavro.entity",
+  "type": "record",
+  "name": "User",
+  "fields": [
+    {"name": "fullname", "type": "string"},
+    {"name": "string",  "type": ["long", "null"]},
+    {"name": "email", "type": ["string", "null"]}
+  ]
+}
