@@ -1,4 +1,4 @@
-{"namespace": "br.com.lucasaquiles.kafkaavro.entity",
+{"namespace": "avro",
   "type": "record",
   "name": "User",
   "fields": [

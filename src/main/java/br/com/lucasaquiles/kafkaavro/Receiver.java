@@ -1,6 +1,6 @@
 package br.com.lucasaquiles.kafkaavro;
 
-import br.com.lucasaquiles.kafkaavro.entity.User;
+import avro.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 

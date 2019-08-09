@@ -1,6 +1,6 @@
 package br.com.lucasaquiles.kafkaavro;
 
-import br.com.lucasaquiles.kafkaavro.entity.User;
+import avro.User;
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
@@ -45,10 +45,9 @@ public class KafkaAvroApplicationTests {
 
 	@Test
 	public void testReceiver() throws Exception {
-		User user = User.builder()
-				.fullName("test user")
-				.email("testuser@email.com")
-				.id(1L)
+		User user = User.newBuilder()
+				.setFullName("test user")
+				.setEmail("testuser@email.com")
 				.build();
 		sender.send(user);
 

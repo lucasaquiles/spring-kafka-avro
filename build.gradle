@@ -59,8 +59,6 @@ dependencies {
 }
 
 task generateAvro(type: com.commercehub.gradle.plugin.avro.GenerateAvroJavaTask) {
-	source("$rootDir/", "src/main/resources/avro")
-	outputDir = file("src/main/java")
-
-	finalizedBy('removeBasicTypes')
+	source("$rootDir/src/main/resources/avro")
+	outputDir = file("src/main/java/")
 }

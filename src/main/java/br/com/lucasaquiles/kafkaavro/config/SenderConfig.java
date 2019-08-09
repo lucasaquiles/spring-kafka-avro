@@ -1,7 +1,7 @@
 package br.com.lucasaquiles.kafkaavro.config;
 
+import avro.User;
 import br.com.lucasaquiles.kafkaavro.Sender;
-import br.com.lucasaquiles.kafkaavro.entity.User;
 import br.com.lucasaquiles.kafkaavro.serializer.AvroSerializer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;

@@ -1,8 +1,8 @@
 package br.com.lucasaquiles.kafkaavro.config;
 
+import avro.User;
 import br.com.lucasaquiles.kafkaavro.Receiver;
 import br.com.lucasaquiles.kafkaavro.deserializer.AvroDeserializer;
-import br.com.lucasaquiles.kafkaavro.entity.User;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
