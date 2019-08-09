@@ -1,11 +1,15 @@
 buildscript{
 
-	repositories{
+	ext {
+		springBootVersion = '2.1.7.RELEASE'
+		gradleAvroVersion = '0.14.2'
+	}
+	repositories {
 		jcenter()
 	}
-
 	dependencies {
-		classpath "com.commercehub.gradle.plugin:gradle-avro-plugin:0.17.0"
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath "com.commercehub.gradle.plugin:gradle-avro-plugin:${gradleAvroVersion}"
 	}
 }
 
@@ -31,19 +35,32 @@ configurations {
 
 repositories {
 	mavenCentral()
+	jcenter()
+	maven {
+		url "http://packages.confluent.io/maven/"
+	}
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.kafka:spring-kafka'
 
-	compile 'org.apache.avro:avro-compiler:1.7.1'
-	compile 'org.apache.avro.gradle:avro-gradle-plugin:1.7.1'
+	compile "org.apache.avro:avro:${avro_version}"
+	compile "io.confluent:kafka-avro-serializer:${kafka_avro_version}"
+
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
 
-	testImplementation 'org.springframework.kafka:spring-kafka-test'
+	testCompile 'org.springframework.kafka:spring-kafka-test'
+
+}
+
+task generateAvro(type: com.commercehub.gradle.plugin.avro.GenerateAvroJavaTask) {
+	source("$rootDir/", "src/main/resources/avro")
+	outputDir = file("src/main/java")
+
+	finalizedBy('removeBasicTypes')
 }

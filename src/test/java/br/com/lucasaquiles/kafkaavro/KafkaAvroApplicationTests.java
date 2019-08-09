@@ -14,7 +14,9 @@ import org.springframework.kafka.test.utils.ContainerTestUtils;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.concurrent.TimeUnit;
+
 import static org.assertj.core.api.Assertions.assertThat;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -25,7 +27,6 @@ public class KafkaAvroApplicationTests {
 
 	@Autowired
 	Receiver receiver;
-
 
 	@Autowired
 	private KafkaListenerEndpointRegistry kafkaListenerEndpointRegistry;

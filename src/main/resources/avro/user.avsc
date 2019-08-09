@@ -2,8 +2,7 @@
   "type": "record",
   "name": "User",
   "fields": [
-    {"name": "fullname", "type": "string"},
-    {"name": "string",  "type": ["long", "null"]},
+    {"name": "fullName", "type": "string"},
     {"name": "email", "type": ["string", "null"]}
   ]
 }
