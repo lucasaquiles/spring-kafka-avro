@@ -1,0 +1,9 @@
+{
+  "namespace": "com.lucasaquiles.events.user",
+  "type": "record",
+  "name": "UserCreated",
+  "fields": [
+    {"name": "fullName", "type": "string"},
+    {"name": "email", "type": ["string", "null"]}
+  ]
+}

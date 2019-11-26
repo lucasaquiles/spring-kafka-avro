@@ -1,8 +1,0 @@
-{"namespace": "avro",
-  "type": "record",
-  "name": "User",
-  "fields": [
-    {"name": "fullName", "type": "string"},
-    {"name": "email", "type": ["string", "null"]}
-  ]
-}

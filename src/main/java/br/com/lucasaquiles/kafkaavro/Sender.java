@@ -1,6 +1,5 @@
 package br.com.lucasaquiles.kafkaavro;
 
-import avro.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,9 +12,9 @@ public class Sender {
     private String avroTopic;
 
     @Autowired
-    private KafkaTemplate<String, User> kafkaTemplate;
+    private KafkaTemplate<String, com.lucasaquiles.events.user.UserCreated> kafkaTemplate;
 
-    public void send(User user) {
+    public void send(com.lucasaquiles.events.user.UserCreated user) {
 
         log.info("sending user={}", user);
         kafkaTemplate.send(avroTopic, user);

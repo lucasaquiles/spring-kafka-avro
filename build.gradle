@@ -48,17 +48,18 @@ dependencies {
 	compile "org.apache.avro:avro:${avro_version}"
 	compile "io.confluent:kafka-avro-serializer:${kafka_avro_version}"
 
-
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
 
 	testCompile 'org.springframework.kafka:spring-kafka-test'
-
 }
 
 task generateAvro(type: com.commercehub.gradle.plugin.avro.GenerateAvroJavaTask) {
 	source("$rootDir/src/main/resources/avro")
-	outputDir = file("src/main/java/")
+	outputDir = file("build")
 }
+
+sourceSets.main.java.srcDir 'build/com/lucasaquiles/events/user'
+
